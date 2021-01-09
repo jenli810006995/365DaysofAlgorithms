@@ -46,3 +46,48 @@ class Solution {
 // It deletes the element in the container. The method does not throws an exception when the Queue is empty, it returns null instead.
 
 // Link: https://leetcode.com/problems/clone-graph/
+
+
+// https://www.geeksforgeeks.org/difference-between-bfs-and-dfs/
+
+// DFS
+
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public List<Node> neighbors;
+    public Node() {
+        val = 0;
+        neighbors = new ArrayList<Node>();
+    }
+    public Node(int _val) {
+        val = _val;
+        neighbors = new ArrayList<Node>();
+    }
+    public Node(int _val, ArrayList<Node> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+}
+*/
+
+// DFS
+
+class Solution {
+    private Map<Node, Node> map = new HashMap();
+    public Node cloneGraph(Node node){
+        if(node == null) return null;
+        if(map.containsKey(node))
+            return map.get(node);
+        Node root = new Node(node.val);
+        map.put(node, root);
+        for(Node ng:node.neighbors){
+            root.neighbors.add(cloneGraph(ng));
+        }
+        return root;
+    }
+    
+};
+
+
