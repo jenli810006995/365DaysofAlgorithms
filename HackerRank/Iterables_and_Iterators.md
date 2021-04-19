@@ -43,7 +43,7 @@ K = int(input())
 
 C = list(combinations(L, K))
 F = filter(lambda c: 'a' in c, C)
-print({'0:.3'}.format(len(list(F))/len(C)))
+print('{0:.3}'.format(len(list(F))/len(C)))
 
 ```
 Link: https://www.hackerrank.com/challenges/iterables-and-iterators/problem
