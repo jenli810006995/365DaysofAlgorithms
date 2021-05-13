@@ -22,6 +22,8 @@ Constraints:
 ```
 
 Solution(Python3):
+
+1. Sorting
 ```
 class Solution:
     def maxNumberOfApples(self, arr:List[int]) -> int:
@@ -38,5 +40,25 @@ class Solution:
         
 TC: O(NlogN), becoz of sorting
 SC: O(1), becoz we do not use additional data structure
+```
+
+2. min-heap: the first pop up from the heap would be the lighest one
+
+Solution:
+```
+class Solution:
+    def maxNumberOfApples(self, arr:List[int]) -> int:
+        # build a heap only requires O(N)
+        heapq.heapify(arr)
+        apples = units = 0
+        
+        # note that arr[0] only represents the smallest element in the min-heap
+        while arr and units + arr[0] <= 5000:
+            units += heapq.heappop(arr)
+            apples += 1
+        return apples
+
+TC: O(N + klogN)
+SC: O(N)
 ```
 Link: https://leetcode.com/problems/how-many-apples-can-you-put-into-the-basket/
