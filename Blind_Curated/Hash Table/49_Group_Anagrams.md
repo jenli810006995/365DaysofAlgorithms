@@ -13,7 +13,7 @@ class Solution:
             ans[tuple(count)].append(s)
         return ans.values()
                 
-# TC: O(nk), n is the length of the strs, k is the maximun length of a string in strs
+# TC: O(nklogk), n is the length of the strs, k is the maximun length of a string in strs
 # SC: O(nk)
 ```
 ```
